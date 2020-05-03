@@ -17,8 +17,17 @@ from django.contrib import admin
 from django.urls import path, include
 from backend import views
 
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('items/', views.AllGroceries.as_view(), name="all_groceries"),
-    path('items/<int:idNo>/', views.SingleGrocery.as_view(), name="single_grocery")
+    path('pantry/', views.AllPantry.as_view(), name="all_pantry"),
+    path('trends/', views.AllTrends.as_view(), name="all_trends"),
+    path('items/<int:pk>/', views.SingleGrocery.as_view(), name="single_grocery"),
+    path('addGrocery/', views.addGrocery),
+    path('addPantry/', views.addPantry),
+    path('updatePantry/<int:pk>', views.updatePantry),
+    path('addTrends/', views.addTrends),
+
 ]
